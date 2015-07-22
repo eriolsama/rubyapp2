@@ -1,0 +1,10 @@
+/usr/bin/ruby1.9.1 -r ./siteconf20150721-30360-v6rh3p.rb extconf.rb
+creating Makefile
+
+make  clean
+
+make
+make: Nothing to be done for `all'.
+
+make  install
+installing default libraries

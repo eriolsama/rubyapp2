@@ -1,0 +1,12 @@
+/usr/bin/ruby1.9.1 -r ./siteconf20150721-30360-1x18q32.rb extconf.rb
+
+make  clean
+make: *** No rule to make target `clean'.  Stop.
+
+make
+echo "Nada."
+Nada.
+
+make  install
+echo "Nada."
+Nada.

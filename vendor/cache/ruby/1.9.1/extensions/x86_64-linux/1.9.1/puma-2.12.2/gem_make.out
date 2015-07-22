@@ -1,0 +1,45 @@
+/usr/bin/ruby1.9.1 -r ./siteconf20150721-30360-872xvk.rb extconf.rb
+checking for BIO_read() in -lcrypto... yes
+checking for SSL_CTX_new() in -lssl... yes
+creating Makefile
+
+make  clean
+
+make
+compiling mini_ssl.c
+In file included from mini_ssl.c:3:0:
+/usr/include/ruby-1.9.1/ruby/backward/rubyio.h:2:2: warning: #warning use "ruby/io.h" instead of "rubyio.h" [-Wcpp]
+ #warning use "ruby/io.h" instead of "rubyio.h"
+  ^
+mini_ssl.c: In function 'engine_read':
+mini_ssl.c:241:14: warning: unused variable 'n' [-Wunused-variable]
+   int bytes, n, error;
+              ^
+mini_ssl.c: In function 'engine_peercert':
+mini_ssl.c:340:3: warning: pointer targets in passing argument 1 of 'rb_str_new' differ in signedness [-Wpointer-sign]
+   rb_cert_buf = rb_str_new(buf, bytes);
+   ^
+In file included from /usr/include/ruby-1.9.1/ruby/ruby.h:1383:0,
+                 from /usr/include/ruby-1.9.1/ruby.h:32,
+                 from mini_ssl.c:2:
+/usr/include/ruby-1.9.1/ruby/intern.h:660:7: note: expected 'const char *' but argument is of type 'unsigned char *'
+ VALUE rb_str_new(const char*, long);
+       ^
+compiling http11_parser.c
+compiling puma_http11.c
+compiling io_buffer.c
+io_buffer.c: In function 'buf_to_str':
+io_buffer.c:119:3: warning: pointer targets in passing argument 1 of 'rb_str_new' differ in signedness [-Wpointer-sign]
+   return rb_str_new(b->top, b->cur - b->top);
+   ^
+In file included from /usr/include/ruby-1.9.1/ruby/ruby.h:1383:0,
+                 from /usr/include/ruby-1.9.1/ruby.h:32,
+                 from io_buffer.c:2:
+/usr/include/ruby-1.9.1/ruby/intern.h:660:7: note: expected 'const char *' but argument is of type 'uint8_t *'
+ VALUE rb_str_new(const char*, long);
+       ^
+linking shared-object puma/puma_http11.so
+
+make  install
+/usr/bin/install -c -m 0755 puma_http11.so .gem.20150721-30360-xcl275/puma
+installing default puma_http11 libraries
